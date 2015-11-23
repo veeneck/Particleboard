@@ -15,7 +15,7 @@ Static class to help playback of background tracks. Intended for longer music wh
 public class PBMusic {
     
     /// AVPlayer expects a volume of 0 to 1. Making this an Int just abstracts it to something easier to read. If you set it to 6, 0.6 would be passed to AVPlayer.
-    var volume : Int = 2
+    public var volume : Int = 2
     
     /// Handle on the main player.
     var player : AVAudioPlayer?
@@ -23,9 +23,13 @@ public class PBMusic {
     /// A second player that will allow us to crossfade. Currently only supports one crossfade per instance of the class.
     /// This could be expanded by keeping  ahandle on the current player, and toggling back and forth ebtween the two.
     var crossPlayer : AVAudioPlayer?
+    
+    // MARK: Initialization
 
     /// Shared instance and only way to properly access the class.
     public static let sharedInstance = PBMusic()
+    
+    // MARK: Playback
     
     /// Start playing the music file on a loop.
     public func play(fileName:String) {
@@ -67,7 +71,7 @@ public class PBMusic {
     }
     
     /// Pause the active player.
-    func pause() {
+    public func pause() {
         self.player?.stop()
         self.crossPlayer?.stop()
     }
