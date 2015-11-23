@@ -1,0 +1,10 @@
+output: /Users/ryancampbell/Documents/Games/veeneck.github.io/Particleboard
+readme_path: /Users/ryancampbell/Documents/Games/Particleboard/README.md
+author_name: "Ryan Campbell"
+author_url: "http://battleofbrothers.com"
+hide_documentation_coverage: yes
+min_acl: public
+github_url: "https://github.com/veeneck/Particleboard"
+root_url: "http://veeneck.github.io/Particleboard"
+module_name: Particleboard
+skip_undocumented: yes

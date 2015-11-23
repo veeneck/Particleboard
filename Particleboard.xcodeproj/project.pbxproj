@@ -10,6 +10,10 @@
 		E74F53B81C03AE810050BA8D /* Particleboard.h in Headers */ = {isa = PBXBuildFile; fileRef = E74F53B71C03AE810050BA8D /* Particleboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E74F53BF1C03AE810050BA8D /* Particleboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E74F53B41C03AE810050BA8D /* Particleboard.framework */; };
 		E74F53C41C03AE810050BA8D /* ParticleboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F53C31C03AE810050BA8D /* ParticleboardTests.swift */; };
+		E74F53D01C03AE9B0050BA8D /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E74F53CF1C03AE9B0050BA8D /* .gitignore */; };
+		E74F53D21C03AEA20050BA8D /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = E74F53D11C03AEA20050BA8D /* README.md */; };
+		E74F53D41C03AEAA0050BA8D /* config.yml in Resources */ = {isa = PBXBuildFile; fileRef = E74F53D31C03AEAA0050BA8D /* config.yml */; };
+		E74F53D61C03AF340050BA8D /* PBMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F53D51C03AF340050BA8D /* PBMusic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,11 +28,15 @@
 
 /* Begin PBXFileReference section */
 		E74F53B41C03AE810050BA8D /* Particleboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Particleboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E74F53B71C03AE810050BA8D /* Particleboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Particleboard.h; sourceTree = "<group>"; };
-		E74F53B91C03AE810050BA8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E74F53B71C03AE810050BA8D /* Particleboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Particleboard.h; path = Particleboard/Particleboard.h; sourceTree = "<group>"; };
+		E74F53B91C03AE810050BA8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Particleboard/Info.plist; sourceTree = "<group>"; };
 		E74F53BE1C03AE810050BA8D /* ParticleboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParticleboardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E74F53C31C03AE810050BA8D /* ParticleboardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticleboardTests.swift; sourceTree = "<group>"; };
 		E74F53C51C03AE810050BA8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E74F53CF1C03AE9B0050BA8D /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		E74F53D11C03AEA20050BA8D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E74F53D31C03AEAA0050BA8D /* config.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.yml; sourceTree = "<group>"; };
+		E74F53D51C03AF340050BA8D /* PBMusic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PBMusic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				E74F53B61C03AE810050BA8D /* Particleboard */,
+				E74F53CE1C03AE890050BA8D /* Info */,
 				E74F53C21C03AE810050BA8D /* ParticleboardTests */,
 				E74F53B51C03AE810050BA8D /* Products */,
 			);
@@ -71,8 +80,7 @@
 		E74F53B61C03AE810050BA8D /* Particleboard */ = {
 			isa = PBXGroup;
 			children = (
-				E74F53B71C03AE810050BA8D /* Particleboard.h */,
-				E74F53B91C03AE810050BA8D /* Info.plist */,
+				E74F53D51C03AF340050BA8D /* PBMusic.swift */,
 			);
 			path = Particleboard;
 			sourceTree = "<group>";
@@ -84,6 +92,18 @@
 				E74F53C51C03AE810050BA8D /* Info.plist */,
 			);
 			path = ParticleboardTests;
+			sourceTree = "<group>";
+		};
+		E74F53CE1C03AE890050BA8D /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				E74F53D31C03AEAA0050BA8D /* config.yml */,
+				E74F53D11C03AEA20050BA8D /* README.md */,
+				E74F53CF1C03AE9B0050BA8D /* .gitignore */,
+				E74F53B71C03AE810050BA8D /* Particleboard.h */,
+				E74F53B91C03AE810050BA8D /* Info.plist */,
+			);
+			name = Info;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +197,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E74F53D41C03AEAA0050BA8D /* config.yml in Resources */,
+				E74F53D01C03AE9B0050BA8D /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +216,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E74F53D21C03AEA20050BA8D /* README.md in Sources */,
+				E74F53D61C03AF340050BA8D /* PBMusic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +338,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Particleboard/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = phalanx.Particleboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -330,6 +355,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Particleboard/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = phalanx.Particleboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
