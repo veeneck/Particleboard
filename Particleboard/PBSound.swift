@@ -36,12 +36,15 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
         
         public var frequency : Float
         
-        public init(filename:String, fileType:String, filePrefix:String, count:Int, frequency:Float) {
+        public var volumeModifier : Float
+        
+        public init(filename:String, fileType:String, filePrefix:String, count:Int, frequency:Float, volumeModifier:Float = 0) {
             self.fileName = filename
             self.fileType = fileType
             self.filePrefix = filePrefix
             self.count = count
             self.frequency = frequency
+            self.volumeModifier = volumeModifier
         }
         
     }
@@ -77,7 +80,6 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
                 if let player = self.loadAVAudioPlayer(fileName) {
                     player.volume = volume
                     player.numberOfLoops = 0
-                    player.prepareToPlay()
                     player.play()
                     self.players.append(player)
                 }
@@ -96,6 +98,7 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
         }
         else {
             if let fileName = self.getRandomFileFromSoundGroup(key) {
+                volume += (self.soundGroups[key]?.volumeModifier)!
                 return SKAction.runBlock({
                     if let player = self.loadAVAudioPlayer(fileName) {
                         player.volume = volume
@@ -135,7 +138,7 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
     
     /// Takes a look at distance form center of screen and camera zoom and returns the adjust volume
     private func adjustVolumeByDistanceAndZoom(distance:Float, zoom:CGFloat) -> Float {
-        let volume = self.adjustVolumeByDistance(distance)
+        var volume = self.adjustVolumeByDistance(distance)
         return self.adjustVolumeByZoom(zoom, volume: volume)
     }
     
@@ -147,7 +150,7 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
         if offset > 0 {
             volume = volume * (1 - percentage)
         }
-        if(volume < 0.1) {
+        if(volume < 0.02) {
             return 0
         }
         return volume
@@ -171,6 +174,7 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
         
         do {
             ret = try AVAudioPlayer(contentsOfURL: url!)
+            ret.prepareToPlay()
             ret.delegate = self
         } catch _ as NSError {
             return nil
