@@ -34,17 +34,23 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
         
         public var count : Int
         
-        public var frequency : Float
+        public var frequency : Int
         
         public var volumeModifier : Float
         
-        public init(filename:String, fileType:String, filePrefix:String, count:Int, frequency:Float, volumeModifier:Float = 0) {
+        public var lastPlayed : Int = -1
+        
+        public init(filename:String, fileType:String, filePrefix:String, count:Int, frequency:Int, volumeModifier:Float = 0) {
             self.fileName = filename
             self.fileType = fileType
             self.filePrefix = filePrefix
             self.count = count
             self.frequency = frequency
             self.volumeModifier = volumeModifier
+        }
+        
+        public mutating func updateLastPlayed(newIndex:Int) {
+            self.lastPlayed = newIndex
         }
         
     }
@@ -185,14 +191,37 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
     /// Randomzies soundgroup variations and returns a filename
     private func getRandomFileFromSoundGroup(key:String) -> String? {
         if let soundGroup = self.soundGroups[key] {
-            var variation = 1
-            if soundGroup.count != 1 {
-                variation = Int.random(min: 1, max: soundGroup.count)
+            if self.shouldPlayBasedOnFrequency(key) {
+                var variation = 1
+                if soundGroup.count != 1 {
+                    var newIndex = -1
+                    while newIndex < 0 {
+                        let temp = Int.random(min: 1, max: soundGroup.count)
+                        if temp != soundGroup.lastPlayed {
+                            newIndex = temp
+                            self.soundGroups[key]?.updateLastPlayed(temp)
+                        }
+                    }
+                    variation = newIndex
+                }
+                let fileName = "\(soundGroup.filePrefix)\(soundGroup.fileName)\(variation).\(soundGroup.fileType)"
+                return fileName
             }
-            let fileName = "\(soundGroup.filePrefix)\(soundGroup.fileName)\(variation).\(soundGroup.fileType)"
-            return fileName
         }
         return nil
+    }
+    
+    /// If a frequency is set, run a random generator to see if a sound hsould be played
+    private func shouldPlayBasedOnFrequency(key:String) -> Bool {
+        if let soundGroup = self.soundGroups[key] {
+            if soundGroup.frequency > 1 {
+                let chance = Int.random(min: 1, max: soundGroup.frequency)
+                if chance != 1 {
+                    return false
+                }
+            }
+        }
+        return true
     }
     
     // MARK: AVAudioPlayer Delegate
