@@ -16,6 +16,19 @@
 		E74F53D61C03AF340050BA8D /* PBMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F53D51C03AF340050BA8D /* PBMusic.swift */; };
 		E776DEB51C15DE6D00DB231D /* PBSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = E776DEB41C15DE6D00DB231D /* PBSound.swift */; };
 		E79C415F1C1F4605005481E6 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C415E1C1F4605005481E6 /* Int+Extensions.swift */; };
+		E79C417B1C20B53A005481E6 /* ASAttributedLabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C416D1C20B53A005481E6 /* ASAttributedLabelNode.swift */; };
+		E79C417C1C20B53A005481E6 /* CGVector+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C416E1C20B53A005481E6 /* CGVector+Extensions.swift */; };
+		E79C417D1C20B53A005481E6 /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C416F1C20B53A005481E6 /* CGPoint+Extensions.swift */; };
+		E79C417E1C20B53A005481E6 /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C41701C20B53A005481E6 /* CGFloat+Extensions.swift */; };
+		E79C417F1C20B53A005481E6 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C41711C20B53A005481E6 /* String+Extensions.swift */; };
+		E79C41801C20B53A005481E6 /* CGPath+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C41721C20B53A005481E6 /* CGPath+Extensions.swift */; };
+		E79C41811C20B53A005481E6 /* Graphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C41731C20B53A005481E6 /* Graphics.swift */; };
+		E79C41821C20B53A005481E6 /* Easing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C41741C20B53A005481E6 /* Easing.swift */; };
+		E79C41831C20B53A005481E6 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C41751C20B53A005481E6 /* Time.swift */; };
+		E79C41841C20B53A005481E6 /* ZPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C41761C20B53A005481E6 /* ZPosition.swift */; };
+		E79C41851C20B53A005481E6 /* float2+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C41771C20B53A005481E6 /* float2+Extensions.swift */; };
+		E79C41861C20B53A005481E6 /* SKCameraNode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C41781C20B53A005481E6 /* SKCameraNode+Extensions.swift */; };
+		E79C41871C20B53A005481E6 /* CGRect+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C41791C20B53A005481E6 /* CGRect+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +54,19 @@
 		E74F53D51C03AF340050BA8D /* PBMusic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PBMusic.swift; sourceTree = "<group>"; };
 		E776DEB41C15DE6D00DB231D /* PBSound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PBSound.swift; sourceTree = "<group>"; };
 		E79C415E1C1F4605005481E6 /* Int+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
+		E79C416D1C20B53A005481E6 /* ASAttributedLabelNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASAttributedLabelNode.swift; sourceTree = "<group>"; };
+		E79C416E1C20B53A005481E6 /* CGVector+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGVector+Extensions.swift"; sourceTree = "<group>"; };
+		E79C416F1C20B53A005481E6 /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
+		E79C41701C20B53A005481E6 /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
+		E79C41711C20B53A005481E6 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		E79C41721C20B53A005481E6 /* CGPath+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPath+Extensions.swift"; sourceTree = "<group>"; };
+		E79C41731C20B53A005481E6 /* Graphics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graphics.swift; sourceTree = "<group>"; };
+		E79C41741C20B53A005481E6 /* Easing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Easing.swift; sourceTree = "<group>"; };
+		E79C41751C20B53A005481E6 /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
+		E79C41761C20B53A005481E6 /* ZPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZPosition.swift; sourceTree = "<group>"; };
+		E79C41771C20B53A005481E6 /* float2+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "float2+Extensions.swift"; sourceTree = "<group>"; };
+		E79C41781C20B53A005481E6 /* SKCameraNode+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKCameraNode+Extensions.swift"; sourceTree = "<group>"; };
+		E79C41791C20B53A005481E6 /* CGRect+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +113,19 @@
 				E74F53D51C03AF340050BA8D /* PBMusic.swift */,
 				E776DEB41C15DE6D00DB231D /* PBSound.swift */,
 				E79C415E1C1F4605005481E6 /* Int+Extensions.swift */,
+				E79C416D1C20B53A005481E6 /* ASAttributedLabelNode.swift */,
+				E79C416E1C20B53A005481E6 /* CGVector+Extensions.swift */,
+				E79C416F1C20B53A005481E6 /* CGPoint+Extensions.swift */,
+				E79C41701C20B53A005481E6 /* CGFloat+Extensions.swift */,
+				E79C41711C20B53A005481E6 /* String+Extensions.swift */,
+				E79C41721C20B53A005481E6 /* CGPath+Extensions.swift */,
+				E79C41731C20B53A005481E6 /* Graphics.swift */,
+				E79C41741C20B53A005481E6 /* Easing.swift */,
+				E79C41751C20B53A005481E6 /* Time.swift */,
+				E79C41761C20B53A005481E6 /* ZPosition.swift */,
+				E79C41771C20B53A005481E6 /* float2+Extensions.swift */,
+				E79C41781C20B53A005481E6 /* SKCameraNode+Extensions.swift */,
+				E79C41791C20B53A005481E6 /* CGRect+Extensions.swift */,
 			);
 			path = Particleboard;
 			sourceTree = "<group>";
@@ -222,9 +261,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E79C41861C20B53A005481E6 /* SKCameraNode+Extensions.swift in Sources */,
+				E79C417D1C20B53A005481E6 /* CGPoint+Extensions.swift in Sources */,
+				E79C41871C20B53A005481E6 /* CGRect+Extensions.swift in Sources */,
+				E79C41811C20B53A005481E6 /* Graphics.swift in Sources */,
+				E79C41821C20B53A005481E6 /* Easing.swift in Sources */,
+				E79C417B1C20B53A005481E6 /* ASAttributedLabelNode.swift in Sources */,
+				E79C41851C20B53A005481E6 /* float2+Extensions.swift in Sources */,
 				E74F53D21C03AEA20050BA8D /* README.md in Sources */,
+				E79C41841C20B53A005481E6 /* ZPosition.swift in Sources */,
+				E79C417C1C20B53A005481E6 /* CGVector+Extensions.swift in Sources */,
+				E79C41831C20B53A005481E6 /* Time.swift in Sources */,
+				E79C417F1C20B53A005481E6 /* String+Extensions.swift in Sources */,
 				E79C415F1C1F4605005481E6 /* Int+Extensions.swift in Sources */,
 				E74F53D61C03AF340050BA8D /* PBMusic.swift in Sources */,
+				E79C417E1C20B53A005481E6 /* CGFloat+Extensions.swift in Sources */,
+				E79C41801C20B53A005481E6 /* CGPath+Extensions.swift in Sources */,
 				E776DEB51C15DE6D00DB231D /* PBSound.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
