@@ -73,7 +73,7 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
     
     /// Main call to play a sound. Returns the SKAction, which you can later run on the node of your choice. Optionally pass in distance arguments
     /// to have the volume dynamicly changed. If volume is so low it wouldn't be heard, returns an empty action to save resources
-    public func getSKActionForSound(fileName:String, distanceFromCamera:Float? = nil, cameraZoom:CGFloat? = nil) -> SKAction {
+    public func getSKActionForSound(fileName:String, distanceFromCamera:Float? = nil, cameraZoom:CGFloat? = nil, volumeModifier:Float = 0) -> SKAction {
         var volume = self.getVolume()
         if let _ = distanceFromCamera {
             volume = self.adjustVolumeByDistanceAndZoom(distanceFromCamera!, zoom: cameraZoom!)
@@ -84,7 +84,7 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
         else {
             return SKAction.runBlock({
                 if let player = self.loadAVAudioPlayer(fileName) {
-                    player.volume = volume
+                    player.volume = volume + volumeModifier
                     player.numberOfLoops = 0
                     player.play()
                     self.players.append(player)
