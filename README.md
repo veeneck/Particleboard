@@ -5,6 +5,7 @@ A collection of utility classes and extensions for SpriteKit porjects.
 Inspiration and / or source pulled from other projects includes:
 
 - [SKTUtils](https://github.com/raywenderlich/SKTUtils)
+- Multiline Label Node by Alex Studnicka
 
 ## Status
 
