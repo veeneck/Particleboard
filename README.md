@@ -1,11 +1,12 @@
 # Particleboard
 
-A collection of utility classes and extensions for SpriteKit porjects.
+A collection of utility classes and extensions for SpriteKit projects.
 
 Inspiration and / or source pulled from other projects includes:
 
 - [SKTUtils](https://github.com/raywenderlich/SKTUtils)
 - Multiline Label Node by Alex Studnicka
+- [SwiftyBeaver](https://github.com/SwiftyBeaver/SwiftyBeaver) for logging
 
 ## Status
 
