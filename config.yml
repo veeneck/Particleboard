@@ -8,3 +8,4 @@ github_url: "https://github.com/veeneck/Particleboard"
 root_url: "http://veeneck.github.io/Particleboard"
 module_name: Particleboard
 skip_undocumented: yes
+swift_version:2.1.1
