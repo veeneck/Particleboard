@@ -23,7 +23,7 @@
 import CoreGraphics
 
 /** The value of π as a CGFloat */
-let π = Float(M_PI)
+public let π = Float(M_PI)
 
 public extension CGFloat {
     /**

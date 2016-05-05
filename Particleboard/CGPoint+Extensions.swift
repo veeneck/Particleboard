@@ -40,10 +40,11 @@ public extension CGPoint {
   }
     
     /// Initialize with a `float2` type.
-    init(_ point: float2) {
-        x = CGFloat(point.x)
-        y = CGFloat(point.y)
-    }
+  public init(_ point: float2) {
+    self.init()
+    x = CGFloat(point.x)
+    y = CGFloat(point.y)
+  }
 
   /**
    * Adds (dx, dy) to the point.
