@@ -27,14 +27,14 @@ public extension Int {
    * Ensures that the integer value stays with the specified range.
    */
   public func clamped(range: Range<Int>) -> Int {
-    return (self < range.startIndex) ? range.startIndex : ((self >= range.endIndex) ? range.endIndex - 1: self)
+    return (self < range.lowerBound) ? range.lowerBound : ((self >= range.upperBound) ? range.upperBound - 1: self)
   }
 
   /**
    * Ensures that the integer value stays with the specified range.
    */
   public mutating func clamp(range: Range<Int>) -> Int {
-    self = clamped(range)
+    self = clamped(range: range)
     return self
   }
 
@@ -51,7 +51,7 @@ public extension Int {
    * Ensures that the integer value stays between the given values, inclusive.
    */
   public mutating func clamp(v1: Int, _ v2: Int) -> Int {
-    self = clamped(v1, v2)
+    self = clamped(v1: v1, v2)
     return self
   }
 
@@ -59,7 +59,7 @@ public extension Int {
    * Returns a random integer in the specified range.
    */
   public static func random(range: Range<Int>) -> Int {
-    return Int(arc4random_uniform(UInt32(range.endIndex - range.startIndex))) + range.startIndex
+    return Int(arc4random_uniform(UInt32(range.upperBound - range.lowerBound))) + range.lowerBound
   }
 
   /**
@@ -72,7 +72,7 @@ public extension Int {
   /**
    * Returns a random integer in the range min...max, inclusive.
    */
-  public static func random(min min: Int, max: Int) -> Int {
+  public static func random(min: Int, max: Int) -> Int {
     assert(min <= max)
     return Int(arc4random_uniform(UInt32(max - min + 1))) + min
   }

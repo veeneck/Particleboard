@@ -68,7 +68,7 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
     
     /// Utility function to play a sound
     public func playSoundOnNode(node:SKNode, fileName:String) {
-        node.runAction(self.getSKActionForSound(fileName))
+        node.run(self.getSKActionForSound(fileName: fileName))
     }
     
     /// Main call to play a sound. Returns the SKAction, which you can later run on the node of your choice. Optionally pass in distance arguments
@@ -76,14 +76,14 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
     public func getSKActionForSound(fileName:String, distanceFromCamera:Float? = nil, cameraZoom:CGFloat? = nil, volumeModifier:Float = 0) -> SKAction {
         var volume = self.getVolume()
         if let _ = distanceFromCamera {
-            volume = self.adjustVolumeByDistanceAndZoom(distanceFromCamera!, zoom: cameraZoom!)
+            volume = self.adjustVolumeByDistanceAndZoom(distance: distanceFromCamera!, zoom: cameraZoom!)
         }
         if(volume == 0) {
-            return SKAction.runBlock({})
+            return SKAction.run({})
         }
         else {
-            return SKAction.runBlock({
-                if let player = self.loadAVAudioPlayer(fileName) {
+            return SKAction.run({
+                if let player = self.loadAVAudioPlayer(fileName: fileName) {
                     player.volume = volume + volumeModifier
                     player.numberOfLoops = 0
                     player.play()
@@ -97,16 +97,16 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
     public func getSKActionForSoundGroup(key:String, distanceFromCamera:Float? = nil, cameraZoom:CGFloat? = nil) -> SKAction {
         var volume = self.getVolume()
         if let _ = distanceFromCamera {
-            volume = self.adjustVolumeByDistanceAndZoom(distanceFromCamera!, zoom: cameraZoom!)
+            volume = self.adjustVolumeByDistanceAndZoom(distance: distanceFromCamera!, zoom: cameraZoom!)
         }
         if(volume == 0) {
-            return SKAction.runBlock({})
+            return SKAction.run({})
         }
         else {
-            if let fileName = self.getRandomFileFromSoundGroup(key) {
+            if let fileName = self.getRandomFileFromSoundGroup(key: key) {
                 volume += (self.soundGroups[key]?.volumeModifier)!
-                return SKAction.runBlock({
-                    if let player = self.loadAVAudioPlayer(fileName) {
+                return SKAction.run({
+                    if let player = self.loadAVAudioPlayer(fileName: fileName) {
                         player.volume = volume
                         player.numberOfLoops = 0
                         player.prepareToPlay()
@@ -116,7 +116,7 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
                 })
             }
             else {
-                return SKAction.runBlock({})
+                return SKAction.run({})
             }
         }
     }
@@ -144,8 +144,8 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
     
     /// Takes a look at distance form center of screen and camera zoom and returns the adjust volume
     private func adjustVolumeByDistanceAndZoom(distance:Float, zoom:CGFloat) -> Float {
-        var volume = self.adjustVolumeByDistance(distance)
-        return self.adjustVolumeByZoom(zoom, volume: volume)
+        var volume = self.adjustVolumeByDistance(distance: distance)
+        return self.adjustVolumeByZoom(zoom: zoom, volume: volume)
     }
     
     /// Every `self.distanceMarker` increments decrease the volume by 10%
@@ -172,14 +172,14 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
     /// Reusable function to load an AVPlayer with a file
     private func loadAVAudioPlayer(fileName:String) -> AVAudioPlayer? {
         let ret : AVAudioPlayer
-        let url = NSBundle.mainBundle().URLForResource(fileName, withExtension: nil)
+        let url = Bundle.main().urlForResource(fileName, withExtension: nil)
         if (url == nil) {
             print("Could not find file: \(fileName)")
             return nil
         }
         
         do {
-            ret = try AVAudioPlayer(contentsOfURL: url!)
+            ret = try AVAudioPlayer(contentsOf: url!)
             ret.prepareToPlay()
             ret.delegate = self
         } catch _ as NSError {
@@ -191,7 +191,7 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
     /// Randomzies soundgroup variations and returns a filename
     private func getRandomFileFromSoundGroup(key:String) -> String? {
         if let soundGroup = self.soundGroups[key] {
-            if self.shouldPlayBasedOnFrequency(key) {
+            if self.shouldPlayBasedOnFrequency(key: key) {
                 var variation = 1
                 if soundGroup.count != 1 {
                     var newIndex = -1
@@ -199,7 +199,7 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
                         let temp = Int.random(min: 1, max: soundGroup.count)
                         if temp != soundGroup.lastPlayed {
                             newIndex = temp
-                            self.soundGroups[key]?.updateLastPlayed(temp)
+                            self.soundGroups[key]?.updateLastPlayed(newIndex: temp)
                         }
                     }
                     variation = newIndex
@@ -227,15 +227,15 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
     // MARK: AVAudioPlayer Delegate
     
     /// Delegate to call when sound is finished so we can remove it from local storage array
-    @objc public func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
-        for (i, existingPlayer) in self.players.enumerate() {
+    @objc public func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        for (i, existingPlayer) in self.players.enumerated() {
             if existingPlayer == player {
-                self.players.removeAtIndex(i)
+                self.players.remove(at: i)
             }
         }
     }
     
-    @objc public func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer, error: NSError?) {
+    @objc public func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: NSError?) {
         print("error decoding")
     }
     

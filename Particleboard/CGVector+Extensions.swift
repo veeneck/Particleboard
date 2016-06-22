@@ -121,7 +121,7 @@ public func + (left: CGVector, right: CGVector) -> CGVector {
 /**
  * Increments a CGVector with the value of another.
  */
-public func += (inout left: CGVector, right: CGVector) {
+public func += ( left: inout CGVector, right: CGVector) {
   left = left + right
 }
 
@@ -135,7 +135,7 @@ public func - (left: CGVector, right: CGVector) -> CGVector {
 /**
  * Decrements a CGVector with the value of another.
  */
-public func -= (inout left: CGVector, right: CGVector) {
+public func -= ( left: inout CGVector, right: CGVector) {
   left = left - right
 }
 
@@ -149,7 +149,7 @@ public func * (left: CGVector, right: CGVector) -> CGVector {
 /**
  * Multiplies a CGVector with another.
  */
-public func *= (inout left: CGVector, right: CGVector) {
+public func *= ( left: inout CGVector, right: CGVector) {
   left = left * right
 }
 
@@ -164,7 +164,7 @@ public func * (vector: CGVector, scalar: CGFloat) -> CGVector {
 /**
  * Multiplies the x and y fields of a CGVector with the same scalar value.
  */
-public func *= (inout vector: CGVector, scalar: CGFloat) {
+public func *= ( vector: inout CGVector, scalar: CGFloat) {
   vector = vector * scalar
 }
 
@@ -178,7 +178,7 @@ public func / (left: CGVector, right: CGVector) -> CGVector {
 /**
  * Divides a CGVector by another.
  */
-public func /= (inout left: CGVector, right: CGVector) {
+public func /= ( left: inout CGVector, right: CGVector) {
   left = left / right
 }
 
@@ -193,7 +193,7 @@ public func / (vector: CGVector, scalar: CGFloat) -> CGVector {
 /**
  * Divides the dx and dy fields of a CGVector by the same scalar value.
  */
-public func /= (inout vector: CGVector, scalar: CGFloat) {
+public func /= ( vector: inout CGVector, scalar: CGFloat) {
   vector = vector / scalar
 }
 

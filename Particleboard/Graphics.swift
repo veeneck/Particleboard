@@ -20,8 +20,8 @@ public class Graphics {
     
     // MARK: Effects
     
-    public class func imageFadeOutAndRemove(img:SKNode, duration:NSTimeInterval) {
-        img.runAction(SKAction.fadeOutWithDuration(duration), completion: {
+    public class func imageFadeOutAndRemove(img:SKNode, duration:TimeInterval) {
+        img.run(SKAction.fadeOut(withDuration: duration), completion: {
             img.removeFromParent()
         })
     }
@@ -29,39 +29,39 @@ public class Graphics {
     public class func pulseBlendFactor(min:CGFloat, max:CGFloat, maxDelay:CGFloat, node:SKSpriteNode) {
         let intensity = CGFloat.random(min: min, max: max)
         let time = CGFloat.random(min: 0.1, max: maxDelay)
-        let block = SKAction.runBlock({
+        let block = SKAction.run({
             node.colorBlendFactor = intensity
         })
-        node.runAction(SKAction.sequence(
+        node.run(SKAction.sequence(
             [
                 block,
-                SKAction.waitForDuration(Double(time))
+                SKAction.wait(forDuration: Double(time))
             ])
         ) {
-            Graphics.pulseBlendFactor(min, max: max, maxDelay: maxDelay, node: node)
+            Graphics.pulseBlendFactor(min: min, max: max, maxDelay: maxDelay, node: node)
         }
     }
     
     public class func pulseAlpha(min:CGFloat, max:CGFloat, maxDelay:CGFloat, node:SKNode) {
         let intensity = CGFloat.random(min: min, max: max)
         let time = CGFloat.random(min: 1, max: maxDelay)
-        node.runAction(SKAction.fadeAlphaTo(intensity, duration: Double(time))) {
-            Graphics.pulseAlpha(min, max: max, maxDelay: maxDelay, node: node)
+        node.run(SKAction.fadeAlpha(to: intensity, duration: Double(time))) {
+            Graphics.pulseAlpha(min: min, max: max, maxDelay: maxDelay, node: node)
         }
     }
     
     public class func pulseScale(min:CGFloat, max:CGFloat, maxDelay:CGFloat, node:SKNode) {
         let intensity = CGFloat.random(min: min, max: max)
         let time = CGFloat.random(min: 1, max: maxDelay)
-        node.runAction(SKAction.scaleTo(intensity, duration: Double(time))) {
-            Graphics.pulseScale(min, max: max, maxDelay: maxDelay, node: node)
+        node.run(SKAction.scale(to: intensity, duration: Double(time))) {
+            Graphics.pulseScale(min: min, max: max, maxDelay: maxDelay, node: node)
         }
     }
     
     public class func pulseScale(min:CGFloat, max:CGFloat, delay:CGFloat, node:SKNode) {
-        let minAction = SKAction.scaleTo(min, duration: Double(delay))
-        let maxAction = SKAction.scaleTo(max, duration: Double(delay))
-        node.runAction(SKAction.repeatActionForever(SKAction.sequence([minAction, maxAction])))
+        let minAction = SKAction.scale(to: min, duration: Double(delay))
+        let maxAction = SKAction.scale(to: max, duration: Double(delay))
+        node.run(SKAction.repeatForever(SKAction.sequence([minAction, maxAction])))
     }
     
     // MARK: Loading
@@ -69,7 +69,7 @@ public class Graphics {
     public class func loadFramesFromAtlas(atlasNamed:String, baseFileName:String, numberOfFrames:Int) -> Array<SKTexture> {
         var frames = Array<SKTexture>()
         let atlas = SKTextureAtlas(named: atlasNamed)
-        for var index = 1; index <= numberOfFrames; ++index {
+        for index in 1...numberOfFrames {
             var fileName : String
             if(index < 10) {
                 fileName = baseFileName + "0\(index)"
@@ -84,7 +84,7 @@ public class Graphics {
     
     public class func loadFramesFromAtlas(atlas:SKTextureAtlas, baseFileName:String, numberOfFrames:Int) -> Array<SKTexture> {
         var frames = Array<SKTexture>()
-        for var index = 1; index <= numberOfFrames; ++index {
+        for index in 1...numberOfFrames {
             var fileName : String
             if(index < 10) {
                 fileName = baseFileName + "0\(index)"
@@ -104,7 +104,7 @@ public class Graphics {
     /// ipad: 341 to 2389
     /// both have same viewable height
     public class func getLeftBound(sceneWidth:CGFloat = 2730) -> CGFloat {
-        let rect = UIScreen.mainScreen().bounds
+        let rect = UIScreen.main().bounds
         
         // mainScreen.bounds always reports at half size. So in the default case, it would return 1365
         let halfScreen = rect.width
@@ -122,7 +122,7 @@ public class Graphics {
     }
     
     public class func getRightBound(sceneWidth:CGFloat = 2730) -> CGFloat {
-        let rect = UIScreen.mainScreen().bounds
+        let rect = UIScreen.main().bounds
         
         // mainScreen.bounds always reports at half size. So in the default case, it would return 1365
         let halfScreen = rect.width

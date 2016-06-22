@@ -34,7 +34,7 @@ public class PBMusic {
     /// Start playing the music file on a loop.
     public func play(fileName:String) {
         if(self.player?.url!.lastPathComponent != fileName) {
-            let handle = self.loadAVAudioPlayer(fileName)
+            let handle = self.loadAVAudioPlayer(fileName: fileName)
             
             if handle != nil {
                 self.player = handle
@@ -49,7 +49,7 @@ public class PBMusic {
     /// Sets up the second player with the new track to fade to. Call `transitionToCrossFade` to start playing.
     public func prepareCrossFade(fileName:String) {
         if(self.crossPlayer?.url!.lastPathComponent != fileName) {
-            let handle = self.loadAVAudioPlayer(fileName)
+            let handle = self.loadAVAudioPlayer(fileName: fileName)
             
             if handle != nil {
                 self.crossPlayer = handle
@@ -65,8 +65,8 @@ public class PBMusic {
         if let time = self.player?.currentTime {
             self.crossPlayer?.currentTime = time
             self.crossPlayer?.play()
-            self.increaseVolumeOverTime(self.crossPlayer!)
-            self.fadeVolumeOverTime(self.player!)
+            ///self.increaseVolumeOverTime(player: self.crossPlayer!)
+            ///self.fadeVolumeOverTime(player: self.player!)
         }
     }
     
@@ -107,43 +107,17 @@ public class PBMusic {
     
     // MARK: Utility
     
-    private func increaseVolumeOverTime(player:AVAudioPlayer){
-        if player.volume < self.getVolume() {
-            player.volume = player.volume + 0.01
-            
-            let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(0.5 * Double(NSEC_PER_SEC)))
-            dispatch_after(dispatchTime, dispatch_get_main_queue(), { [weak self] in
-                self?.increaseVolumeOverTime(player)
-            })
-            
-        }
-    }
-    
-    private func fadeVolumeOverTime(player:AVAudioPlayer){
-        if player.volume > 0.1 {
-            player.volume = player.volume - 0.01
-            
-            let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(0.5 * Double(NSEC_PER_SEC)))
-            dispatch_after(dispatchTime, dispatch_get_main_queue(), { [weak self] in
-                self?.fadeVolumeOverTime(player)
-            })
-            
-        } else {
-            player.pause()
-            player.volume = self.getVolume()
-        }
-    }
     
     private func loadAVAudioPlayer(fileName:String) -> AVAudioPlayer? {
         let ret : AVAudioPlayer
-        let url = NSBundle.mainBundle().URLForResource(fileName, withExtension: nil)
+        let url = Bundle.main().urlForResource(fileName, withExtension: nil)
         if (url == nil) {
             print("Could not find file: \(fileName)")
             return nil
         }
         
         do {
-            ret = try AVAudioPlayer(contentsOfURL: url!)
+            ret = try AVAudioPlayer(contentsOf: url!)
         } catch _ as NSError {
             return nil
         }

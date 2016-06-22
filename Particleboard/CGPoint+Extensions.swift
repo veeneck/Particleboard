@@ -119,7 +119,7 @@ public func + (left: CGPoint, right: CGPoint) -> CGPoint {
 /**
  * Increments a CGPoint with the value of another.
  */
-public func += (inout left: CGPoint, right: CGPoint) {
+public func += ( left: inout CGPoint, right: CGPoint) {
   left = left + right
 }
 
@@ -133,7 +133,7 @@ public func + (left: CGPoint, right: float2) -> CGPoint {
 /**
  * Increments a CGPoint with the value of a CGVector.
  */
-public func += (inout left: CGPoint, right: float2) {
+public func += ( left: inout CGPoint, right: float2) {
   left = left + right
 }
 
@@ -147,7 +147,7 @@ public func - (left: CGPoint, right: CGPoint) -> CGPoint {
 /**
  * Decrements a CGPoint with the value of another.
  */
-public func -= (inout left: CGPoint, right: CGPoint) {
+public func -= ( left: inout CGPoint, right: CGPoint) {
   left = left - right
 }
 
@@ -161,7 +161,7 @@ public func - (left: CGPoint, right: CGVector) -> CGPoint {
 /**
  * Decrements a CGPoint with the value of a CGVector.
  */
-public func -= (inout left: CGPoint, right: CGVector) {
+public func -= ( left: inout CGPoint, right: CGVector) {
   left = left - right
 }
 
@@ -175,7 +175,7 @@ public func * (left: CGPoint, right: CGPoint) -> CGPoint {
 /**
  * Multiplies a CGPoint with another.
  */
-public func *= (inout left: CGPoint, right: CGPoint) {
+public func *= ( left: inout CGPoint, right: CGPoint) {
   left = left * right
 }
 
@@ -190,7 +190,7 @@ public func * (point: CGPoint, scalar: CGFloat) -> CGPoint {
 /**
  * Multiplies the x and y fields of a CGPoint with the same scalar value.
  */
-public func *= (inout point: CGPoint, scalar: CGFloat) {
+public func *= ( point: inout CGPoint, scalar: CGFloat) {
   point = point * scalar
 }
 
@@ -204,7 +204,7 @@ public func * (left: CGPoint, right: CGVector) -> CGPoint {
 /**
  * Multiplies a CGPoint with a CGVector.
  */
-public func *= (inout left: CGPoint, right: CGVector) {
+public func *= ( left: inout CGPoint, right: CGVector) {
   left = left * right
 }
 
@@ -218,7 +218,7 @@ public func / (left: CGPoint, right: CGPoint) -> CGPoint {
 /**
  * Divides a CGPoint by another.
  */
-public func /= (inout left: CGPoint, right: CGPoint) {
+public func /= ( left: inout CGPoint, right: CGPoint) {
   left = left / right
 }
 
@@ -233,7 +233,7 @@ public func / (point: CGPoint, scalar: CGFloat) -> CGPoint {
 /**
  * Divides the x and y fields of a CGPoint by the same scalar value.
  */
-public func /= (inout point: CGPoint, scalar: CGFloat) {
+public func /= ( point: inout CGPoint, scalar: CGFloat) {
   point = point / scalar
 }
 
@@ -247,7 +247,7 @@ public func / (left: CGPoint, right: CGVector) -> CGPoint {
 /**
  * Divides a CGPoint by a CGVector.
  */
-public func /= (inout left: CGPoint, right: CGVector) {
+public func /= ( left: inout CGPoint, right: CGVector) {
   left = left / right
 }
 

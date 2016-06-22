@@ -15,7 +15,7 @@ public extension SKCameraNode {
     
     /// Use this to move camera around manually.
     public func panToPoint(point:CGPoint, duration:Double = 0.3) {
-        self.runAction(SKAction.moveTo(point, duration: duration))
+        self.run(SKAction.move(to: point, duration: duration))
     }
     
 }

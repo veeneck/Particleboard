@@ -34,7 +34,9 @@ public extension CGRect {
         }
         
         /// If the absolute value of the x points are greater than the y, we know the intersection is on the sides.
-        if((abs(endPoint.x - self.midX) + adjustedWidth) > (abs(endPoint.y - self.midY) + adjustedHeight)) {
+        let absX = abs(endPoint.x - self.midX)
+        let absY = abs(endPoint.y - self.midY)
+        if((absX + adjustedWidth) > (absY + adjustedHeight)) {
             
             // Figure out let or right side, and find interesect X
             if(endPoint.x < self.midX) {
@@ -64,7 +66,7 @@ public extension CGRect {
             }
         }
         
-        return (intersection: self.pointsIntersect(endPoint, a2: CGPoint(x:self.midX, y:self.midY), b1: b1, b2: b2), side:side)
+        return (intersection: self.pointsIntersect(a1: endPoint, a2: CGPoint(x:self.midX, y:self.midY), b1: b1, b2: b2), side:side)
     }
     
     /// Determines the point of intersection between any two lines

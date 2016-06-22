@@ -11,12 +11,12 @@ import SpriteKit
 public class Time {
     
     public class func delay(delay:Double, closure:()->()) {
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                Int64(delay * Double(NSEC_PER_SEC))
-            ),
-            dispatch_get_main_queue(), closure)
+        
+        let delayTime = DispatchTime.now() + delay
+        DispatchQueue.main.after(when: delayTime) {
+            closure()
+        }
+
     }
     
 }
