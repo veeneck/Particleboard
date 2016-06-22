@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>ParticleboardOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -18,6 +23,16 @@
 			<true/>
 		</dict>
 		<key>E74F53BD1C03AE810050BA8D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E7CBDB241D1B237D00FE9E66</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E7CBDB2D1D1B237D00FE9E66</key>
 		<dict>
 			<key>primary</key>
 			<true/>
