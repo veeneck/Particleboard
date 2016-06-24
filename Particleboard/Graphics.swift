@@ -50,11 +50,13 @@ public class Graphics {
         }
     }
     
-    public class func pulseScale(min:CGFloat, max:CGFloat, maxDelay:CGFloat, node:SKNode) {
+    public class func pulseScale(min:CGFloat, max:CGFloat, minDelay: CGFloat, maxDelay:CGFloat, node:SKNode) {
         let intensity = CGFloat.random(min: min, max: max)
-        let time = CGFloat.random(min: 1, max: maxDelay)
-        node.run(SKAction.scale(to: intensity, duration: Double(time))) {
-            Graphics.pulseScale(min: min, max: max, maxDelay: maxDelay, node: node)
+        let time = CGFloat.random(min: minDelay, max: maxDelay)
+        let action = SKAction.scale(to: intensity, duration: Double(time))
+        action.timingMode = .easeInEaseOut
+        node.run(action) {
+            Graphics.pulseScale(min: min, max: max, minDelay:minDelay, maxDelay: maxDelay, node: node)
         }
     }
     
@@ -104,6 +106,7 @@ public class Graphics {
     /// ipad: 341 to 2389
     /// both have same viewable height
     public class func getLeftBound(sceneWidth:CGFloat = 2730) -> CGFloat {
+        #if os(iOS)
         let rect = UIScreen.main().bounds
         
         // mainScreen.bounds always reports at half size. So in the default case, it would return 1365
@@ -119,9 +122,13 @@ public class Graphics {
         else {
             return 0
         }
+        #else
+            return 0
+        #endif
     }
     
     public class func getRightBound(sceneWidth:CGFloat = 2730) -> CGFloat {
+        #if os(iOS)
         let rect = UIScreen.main().bounds
         
         // mainScreen.bounds always reports at half size. So in the default case, it would return 1365
@@ -137,5 +144,8 @@ public class Graphics {
         else {
             return 0
         }
+        #else
+            return 0
+        #endif
     }
 }

@@ -30,6 +30,19 @@
 		E7CBDB281D1B237D00FE9E66 /* ParticleboardOS.h in Headers */ = {isa = PBXBuildFile; fileRef = E7CBDB271D1B237D00FE9E66 /* ParticleboardOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E7CBDB2F1D1B237D00FE9E66 /* ParticleboardOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CBDB251D1B237D00FE9E66 /* ParticleboardOS.framework */; };
 		E7CBDB341D1B237D00FE9E66 /* ParticleboardOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CBDB331D1B237D00FE9E66 /* ParticleboardOSTests.swift */; };
+		E7CBDB521D1B74B000FE9E66 /* Graphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C41731C20B53A005481E6 /* Graphics.swift */; };
+		E7CBDB531D1B74B600FE9E66 /* PBMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F53D51C03AF340050BA8D /* PBMusic.swift */; };
+		E7CBDB541D1B74B800FE9E66 /* PBSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = E776DEB41C15DE6D00DB231D /* PBSound.swift */; };
+		E7CBDB551D1B74BA00FE9E66 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C415E1C1F4605005481E6 /* Int+Extensions.swift */; };
+		E7CBDB561D1B74BC00FE9E66 /* CGVector+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C416E1C20B53A005481E6 /* CGVector+Extensions.swift */; };
+		E7CBDB571D1B74BF00FE9E66 /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C416F1C20B53A005481E6 /* CGPoint+Extensions.swift */; };
+		E7CBDB581D1B74C100FE9E66 /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C41701C20B53A005481E6 /* CGFloat+Extensions.swift */; };
+		E7CBDB591D1B74C400FE9E66 /* CGPath+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C41721C20B53A005481E6 /* CGPath+Extensions.swift */; };
+		E7CBDB5B1D1B74CA00FE9E66 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C41751C20B53A005481E6 /* Time.swift */; };
+		E7CBDB5C1D1B74CE00FE9E66 /* ZPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C41761C20B53A005481E6 /* ZPosition.swift */; };
+		E7CBDB5D1D1B74D100FE9E66 /* float2+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C41771C20B53A005481E6 /* float2+Extensions.swift */; };
+		E7CBDB5E1D1B74D400FE9E66 /* SKCameraNode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C41781C20B53A005481E6 /* SKCameraNode+Extensions.swift */; };
+		E7CBDB5F1D1B74D700FE9E66 /* CGRect+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C41791C20B53A005481E6 /* CGRect+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -414,6 +427,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7CBDB561D1B74BC00FE9E66 /* CGVector+Extensions.swift in Sources */,
+				E7CBDB5D1D1B74D100FE9E66 /* float2+Extensions.swift in Sources */,
+				E7CBDB521D1B74B000FE9E66 /* Graphics.swift in Sources */,
+				E7CBDB5B1D1B74CA00FE9E66 /* Time.swift in Sources */,
+				E7CBDB581D1B74C100FE9E66 /* CGFloat+Extensions.swift in Sources */,
+				E7CBDB551D1B74BA00FE9E66 /* Int+Extensions.swift in Sources */,
+				E7CBDB591D1B74C400FE9E66 /* CGPath+Extensions.swift in Sources */,
+				E7CBDB531D1B74B600FE9E66 /* PBMusic.swift in Sources */,
+				E7CBDB571D1B74BF00FE9E66 /* CGPoint+Extensions.swift in Sources */,
+				E7CBDB541D1B74B800FE9E66 /* PBSound.swift in Sources */,
+				E7CBDB5F1D1B74D700FE9E66 /* CGRect+Extensions.swift in Sources */,
+				E7CBDB5E1D1B74D400FE9E66 /* SKCameraNode+Extensions.swift in Sources */,
+				E7CBDB5C1D1B74CE00FE9E66 /* ZPosition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,7 +565,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Particleboard/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = phalanx.Particleboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -557,7 +583,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Particleboard/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = phalanx.Particleboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -711,6 +737,7 @@
 				E7CBDB371D1B237D00FE9E66 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E7CBDB3B1D1B237D00FE9E66 /* Build configuration list for PBXNativeTarget "ParticleboardOSTests" */ = {
 			isa = XCConfigurationList;
@@ -719,6 +746,7 @@
 				E7CBDB391D1B237D00FE9E66 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
