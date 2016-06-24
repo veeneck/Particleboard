@@ -105,6 +105,25 @@ public class PBMusic {
         }
     }
     
+    public func fadeOut(delay:Double = 0.5, increment:Double = 0.01) {
+        if let player = self.player {
+            self.fadeVolumeOverTime(player: player, delay: delay, increment: increment)
+        }
+    }
+    
+    private func fadeVolumeOverTime(player:AVAudioPlayer, delay:Double = 0.5, increment:Double = 0.01) {
+        if player.volume - Float(increment) > 0.1 {
+            player.volume = player.volume - Float(increment)
+            
+            Time.delay(delay: delay) { [weak self] in
+                self?.fadeVolumeOverTime(player: player)
+            }
+        } else {
+            player.pause()
+            player.volume = self.getVolume()
+        }
+    }
+    
     // MARK: Utility
     
     
