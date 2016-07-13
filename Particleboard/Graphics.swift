@@ -70,6 +70,7 @@ public class Graphics {
     
     public class func loadFramesFromAtlas(atlasNamed:String, baseFileName:String, numberOfFrames:Int) -> Array<SKTexture> {
         var frames = Array<SKTexture>()
+        
         let atlas = SKTextureAtlas(named: atlasNamed)
         for index in 1...numberOfFrames {
             var fileName : String

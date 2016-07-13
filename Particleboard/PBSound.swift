@@ -17,8 +17,8 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
     /// AVPlayer expects a volume of 0 to 1. Making this an Int just abstracts it to something easier to read. If you set it to 6, 0.6 would be passed to AVPlayer.
     public var volume : Int = 8
     
-    /// A handle on each player. When a player is playing, it must be kept in scope our else the sound won't be heard. So, the players are stored here, and then removed from this array when the sound is completed.
-    private var players = [AVAudioPlayer]()
+    /// A handle on each player. When a player is playing, it must be kept in scope our else the sound won't be heard. So, the players are stored here, and then referenced for future plays. Should be cleared when a scene changes.
+    private var cachedPlayers = Dictionary<String, AVAudioPlayer>()
     
     /// The distance increment where the volume will lower.
     private let distanceMarker : Float = 200
@@ -63,7 +63,6 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
     /// Shared instance and only way to properly access the class.
     public static let sharedInstance = PBSound()
     
-    
     // MARK: Playback
     
     /// Utility function to play a sound
@@ -83,11 +82,13 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
         }
         else {
             return SKAction.run({
-                if let player = self.loadAVAudioPlayer(fileName: fileName) {
-                    player.volume = volume + volumeModifier
-                    player.numberOfLoops = 0
-                    player.play()
-                    self.players.append(player)
+                DispatchQueue.global(attributes: .qosUserInitiated).async { [weak self] in
+                    if let player = self?.loadAVAudioPlayer(fileName: fileName) {
+                        player.volume = volume + volumeModifier
+                        player.numberOfLoops = 0
+                        player.play()
+                        ///self?.players.append(player)
+                    }
                 }
             })
         }
@@ -105,20 +106,27 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
         else {
             if let fileName = self.getRandomFileFromSoundGroup(key: key) {
                 volume += (self.soundGroups[key]?.volumeModifier)!
-                return SKAction.run({
-                    if let player = self.loadAVAudioPlayer(fileName: fileName) {
+
+                if let player = self.cachedPlayers[fileName] {
+                    return SKAction.run({
                         player.volume = volume
                         player.numberOfLoops = 0
                         player.prepareToPlay()
                         player.play()
-                        self.players.append(player)
-                    }
-                })
-            }
-            else {
-                return SKAction.run({})
+                    })
+                }
+                else if let player = self.loadAVAudioPlayer(fileName: fileName) {
+                    self.cachedPlayers[fileName] = player
+                    return SKAction.run({
+                            player.volume = volume
+                            player.numberOfLoops = 0
+                            player.prepareToPlay()
+                            player.play()
+                    })
+                }
             }
         }
+        return SKAction.run({})
     }
 
     
@@ -172,7 +180,7 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
     /// Reusable function to load an AVPlayer with a file
     private func loadAVAudioPlayer(fileName:String) -> AVAudioPlayer? {
         let ret : AVAudioPlayer
-        let url = Bundle.main().urlForResource(fileName, withExtension: nil)
+        let url = Bundle.main.urlForResource(fileName, withExtension: nil)
         if (url == nil) {
             print("Could not find file: \(fileName)")
             return nil
@@ -228,11 +236,11 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
     
     /// Delegate to call when sound is finished so we can remove it from local storage array
     @objc public func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-        for (i, existingPlayer) in self.players.enumerated() {
+        /*for (i, existingPlayer) in self.players.enumerated() {
             if existingPlayer == player {
                 self.players.remove(at: i)
             }
-        }
+        }*/
     }
     
     @objc public func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: NSError?) {
