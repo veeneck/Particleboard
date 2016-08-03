@@ -108,7 +108,7 @@ public class Graphics {
     /// both have same viewable height
     public class func getLeftBound(sceneWidth:CGFloat = 2730) -> CGFloat {
         #if os(iOS)
-        let rect = UIScreen.main().bounds
+        let rect = UIScreen.main.bounds
         
         // mainScreen.bounds always reports at half size. So in the default case, it would return 1365
         let halfScreen = rect.width
@@ -130,7 +130,7 @@ public class Graphics {
     
     public class func getRightBound(sceneWidth:CGFloat = 2730) -> CGFloat {
         #if os(iOS)
-        let rect = UIScreen.main().bounds
+        let rect = UIScreen.main.bounds
         
         // mainScreen.bounds always reports at half size. So in the default case, it would return 1365
         let halfScreen = rect.width

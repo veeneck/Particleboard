@@ -82,7 +82,8 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
         }
         else {
             return SKAction.run({
-                DispatchQueue.global(attributes: .qosUserInitiated).async { [weak self] in
+                DispatchQueue.global(qos: .userInitiated).async {
+                    [weak self] in
                     if let player = self?.loadAVAudioPlayer(fileName: fileName) {
                         player.volume = volume + volumeModifier
                         player.numberOfLoops = 0
@@ -91,6 +92,7 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
                     }
                 }
             })
+
         }
     }
     
@@ -180,7 +182,7 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
     /// Reusable function to load an AVPlayer with a file
     private func loadAVAudioPlayer(fileName:String) -> AVAudioPlayer? {
         let ret : AVAudioPlayer
-        let url = Bundle.main.urlForResource(fileName, withExtension: nil)
+        let url = Bundle.main.url(forResource: fileName, withExtension: nil)
         if (url == nil) {
             print("Could not find file: \(fileName)")
             return nil

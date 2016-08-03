@@ -13,7 +13,7 @@ public class Time {
     public class func delay(delay:Double, closure:()->()) {
         
         let delayTime = DispatchTime.now() + delay
-        DispatchQueue.main.after(when: delayTime) {
+        DispatchQueue.main.asyncAfter(deadline: delayTime) {
             closure()
         }
 

@@ -129,7 +129,7 @@ public class PBMusic {
     
     private func loadAVAudioPlayer(fileName:String) -> AVAudioPlayer? {
         let ret : AVAudioPlayer
-        let url = Bundle.main.urlForResource(fileName, withExtension: nil)
+        let url = Bundle.main.url(forResource: fileName, withExtension: nil)
         if (url == nil) {
             print("Could not find file: \(fileName)")
             return nil
