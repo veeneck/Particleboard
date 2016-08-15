@@ -10,12 +10,10 @@ import SpriteKit
 
 public class Time {
     
-    public class func delay(delay:Double, closure:()->()) {
+    public class func delay(delay:Double, closure: @escaping ()->()) {
         
         let delayTime = DispatchTime.now() + delay
-        DispatchQueue.main.asyncAfter(deadline: delayTime) {
-            closure()
-        }
+        DispatchQueue.main.asyncAfter(deadline: delayTime, execute: closure)
 
     }
     

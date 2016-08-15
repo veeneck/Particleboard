@@ -12,19 +12,19 @@ public extension CGPath {
     
     public class func lineToPoint(start:CGPoint, end:CGPoint) -> CGMutablePath {
         let path = CGMutablePath()
-        path.moveTo(nil, x: start.x, y: start.y)
-        path.addLineTo(nil, x: end.x, y: end.y);
+        path.move(to: start)
+        path.addLine(to: end)
         return path
     }
     
     public class func arcToPoint(start:CGPoint, end:CGPoint, next:CGPoint?) -> CGMutablePath {
         let path = CGMutablePath()
-        path.moveTo(nil, x: start.x, y: start.y)
+        path.move(to: start)
         if((next) != nil) {
-            path.addArc(nil, x1: end.x, y1: end.y, x2: next!.x, y2: next!.y, radius: 150);
+            path.addArc(tangent1End: end, tangent2End: next!, radius: 150)
         }
         else {
-            path.addLineTo(nil, x: end.x, y: end.y);
+            path.addLine(to: end)
         }
         return path
     }
@@ -36,12 +36,9 @@ public extension CGPath {
         let point1 = start + CGPoint(float2(angle:Float(heading + halfTurn)) * range)
         let point2 = start + (float2(angle:Float(heading - halfTurn)) * range)
         let arcPoint = start + (float2(angle:Float(heading)) * range)
-        path.moveTo(nil, x: start.x, y: start.y)
-        path.addLineTo(nil, x: point1.x, y: point1.y)
-        path.addCurve(nil,
-                      cp1x: point1.x, cp1y: point1.y,
-                      cp2x: arcPoint.x, cp2y: arcPoint.y,
-                      endingAtX: point2.x, y: point2.y)
+        path.move(to: start)
+        path.addLine(to: point1)
+        path.addCurve(to: point2, control1: point1, control2: arcPoint)
         
         return path
     }
@@ -61,27 +58,30 @@ public extension CGPath {
             totalLift = totalLift * -1;
         }
         
+        let cp1 = CGPoint(x:start.x + offsetX, y:start.y + offsetY + totalLift)
+        let cp2 = CGPoint(x:start.x + (offsetX * 2), y: start.y + (offsetY * 2) + totalLift)
+        
         // Make a path
         let path = CGMutablePath();
-        path.moveTo(nil, x: start.x, y: start.y);
-        path.addCurve(nil,
-                      cp1x: start.x + offsetX, cp1y: start.y + offsetY + totalLift,
-                      cp2x: start.x + (offsetX * 2), cp2y: start.y + (offsetY * 2) + totalLift,
-                      endingAtX: end.x, y: end.y);
+        path.move(to: start)
+        path.addCurve(to: end, control1: cp1, control2: cp2)
+
         
         return path;
     }
     
     public class func pathFromPoints(points:[CGPoint]) -> CGPath {
         let path = CGMutablePath()
-        path.moveTo(nil, x: points[0].x, y: points[0].y)
+        path.move(to: points[0])
+
         
         for index in 1 ..< points.count {
             let tempPoint = points[index]
-            path.addLineTo(nil, x: tempPoint.x, y: tempPoint.y)
+            path.addLine(to: tempPoint)
         }
         
-        path.addLineTo(nil, x: points[0].x, y: points[0].y)
+        path.addLine(to: points[0])
+        
         return path
     }
     
