@@ -33,16 +33,14 @@ public class PBMusic {
     
     /// Start playing the music file on a loop.
     public func play(fileName:String) {
-        if(self.player?.url!.lastPathComponent != fileName) {
-            let handle = self.loadAVAudioPlayer(fileName: fileName)
-            
-            if handle != nil {
-                self.player = handle
-                self.player!.volume = self.getVolume()
-                self.player!.numberOfLoops = -1
-                self.player!.prepareToPlay()
-                self.player!.play()
-            }
+        let handle = self.loadAVAudioPlayer(fileName: fileName)
+        
+        if handle != nil {
+            self.player = handle
+            self.player!.volume = self.getVolume()
+            self.player!.numberOfLoops = -1
+            self.player!.prepareToPlay()
+            self.player!.play()
         }
     }
     

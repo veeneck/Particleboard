@@ -82,7 +82,22 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
         }
         else {
             return SKAction.run({
-                DispatchQueue.global(qos: .userInitiated).async {
+                
+                if let player = self.cachedPlayers[fileName] {
+                    player.volume = volume
+                    player.numberOfLoops = 0
+                    player.play()
+                }
+                
+                else if let player = self.loadAVAudioPlayer(fileName: fileName) {
+                    player.volume = volume + volumeModifier
+                    player.numberOfLoops = 0
+                    player.prepareToPlay()
+                    player.play()
+                    self.cachedPlayers[fileName] = player
+                }
+
+                /*DispatchQueue.global(qos: .userInitiated).async {
                     [weak self] in
                     if let player = self?.loadAVAudioPlayer(fileName: fileName) {
                         player.volume = volume + volumeModifier
@@ -90,7 +105,7 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
                         player.play()
                         ///self?.players.append(player)
                     }
-                }
+                }*/
             })
 
         }
@@ -238,9 +253,9 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
     
     /// Delegate to call when sound is finished so we can remove it from local storage array
     @objc public func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-        /*for (i, existingPlayer) in self.players.enumerated() {
-            if existingPlayer == player {
-                self.players.remove(at: i)
+        /*for (i, existingPlayer) in self.cachedPlayers.enumerated() {
+            if existingPlayer.value == player {
+                self.cachedPlayers.removeValue(forKey: existingPlayer.key)
             }
         }*/
     }
