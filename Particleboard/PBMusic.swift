@@ -33,6 +33,8 @@ public class PBMusic {
     
     /// Start playing the music file on a loop.
     public func play(fileName:String) {
+        DispatchQueue.global(qos: .background).async {
+
         let handle = self.loadAVAudioPlayer(fileName: fileName)
         
         if handle != nil {
@@ -41,6 +43,12 @@ public class PBMusic {
             self.player!.numberOfLoops = -1
             self.player!.prepareToPlay()
             self.player!.play()
+            
+            DispatchQueue.main.async {
+                ///self.player!.play()
+            }
+        }
+            
         }
     }
     

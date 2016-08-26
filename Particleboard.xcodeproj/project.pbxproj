@@ -28,6 +28,8 @@
 		E79C41851C20B53A005481E6 /* float2+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C41771C20B53A005481E6 /* float2+Extensions.swift */; };
 		E79C41861C20B53A005481E6 /* SKCameraNode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C41781C20B53A005481E6 /* SKCameraNode+Extensions.swift */; };
 		E79C41871C20B53A005481E6 /* CGRect+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C41791C20B53A005481E6 /* CGRect+Extensions.swift */; };
+		E7A1C31F1D70B69600A16312 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7992BD81D6F8C3D001FFA37 /* Logging.swift */; };
+		E7A1C3211D70B7C400A16312 /* Easing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C41741C20B53A005481E6 /* Easing.swift */; };
 		E7CBDB281D1B237D00FE9E66 /* ParticleboardOS.h in Headers */ = {isa = PBXBuildFile; fileRef = E7CBDB271D1B237D00FE9E66 /* ParticleboardOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E7CBDB2F1D1B237D00FE9E66 /* ParticleboardOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CBDB251D1B237D00FE9E66 /* ParticleboardOS.framework */; };
 		E7CBDB341D1B237D00FE9E66 /* ParticleboardOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CBDB331D1B237D00FE9E66 /* ParticleboardOSTests.swift */; };
@@ -434,7 +436,9 @@
 				E7CBDB561D1B74BC00FE9E66 /* CGVector+Extensions.swift in Sources */,
 				E7CBDB5D1D1B74D100FE9E66 /* float2+Extensions.swift in Sources */,
 				E7CBDB521D1B74B000FE9E66 /* Graphics.swift in Sources */,
+				E7A1C31F1D70B69600A16312 /* Logging.swift in Sources */,
 				E7CBDB5B1D1B74CA00FE9E66 /* Time.swift in Sources */,
+				E7A1C3211D70B7C400A16312 /* Easing.swift in Sources */,
 				E7CBDB581D1B74C100FE9E66 /* CGFloat+Extensions.swift in Sources */,
 				E7CBDB551D1B74BA00FE9E66 /* Int+Extensions.swift in Sources */,
 				E7CBDB591D1B74C400FE9E66 /* CGPath+Extensions.swift in Sources */,

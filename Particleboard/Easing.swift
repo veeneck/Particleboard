@@ -15,7 +15,7 @@
 //  http://sam.zoy.org/wtfpl/COPYING for more details.
 //
 
-import UIKit
+import Foundation
 
 let M_PI_2_f = Float(M_PI_2)
 let M_PI_f = Float(M_PI)
