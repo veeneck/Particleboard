@@ -33,7 +33,7 @@ public class PBMusic {
     
     /// Start playing the music file on a loop.
     public func play(fileName:String) {
-        DispatchQueue.global(qos: .background).async {
+        //DispatchQueue.global(qos: .background).async { [weak self] in
 
         let handle = self.loadAVAudioPlayer(fileName: fileName)
         
@@ -42,12 +42,11 @@ public class PBMusic {
             self.player!.volume = self.getVolume()
             self.player!.numberOfLoops = -1
             self.player!.prepareToPlay()
-            self.player!.play()
             
-            DispatchQueue.main.async {
-                ///self.player!.play()
-            }
-        }
+           // DispatchQueue.main.async {
+                self.player!.play()
+            //}
+        //}
             
         }
     }
@@ -118,11 +117,11 @@ public class PBMusic {
     }
     
     private func fadeVolumeOverTime(player:AVAudioPlayer, delay:Double = 0.5, increment:Double = 0.01) {
-        if player.volume - Float(increment) > 0.1 {
-            player.volume = player.volume - Float(increment)
+        if player.volume - Float(increment) >= 0.1 {
             
+            player.volume = player.volume - Float(increment)
             Time.delay(delay: delay) { [weak self] in
-                self?.fadeVolumeOverTime(player: player)
+                self?.fadeVolumeOverTime(player: player, delay:delay, increment:increment)
             }
         } else {
             player.pause()

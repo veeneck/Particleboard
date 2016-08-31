@@ -38,6 +38,7 @@ public enum CodePackage : String {
 }
 
 public func logged(_ text:String, file:String, level:LogLevel = LogLevel.Info, newline:Bool = false) {
+
     var skip = ""
     if newline == true {
         skip = "\n"
@@ -48,6 +49,7 @@ public func logged(_ text:String, file:String, level:LogLevel = LogLevel.Info, n
             print(skip + level.icon + category + ": " + text)
         }
     }
+    
 }
 
 /// If you want to hide logs from a certain callee, have that callee return nil
