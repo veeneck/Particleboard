@@ -70,8 +70,8 @@ public class PBMusic {
         if let time = self.player?.currentTime {
             self.crossPlayer?.currentTime = time
             self.crossPlayer?.play()
-            ///self.increaseVolumeOverTime(player: self.crossPlayer!)
-            ///self.fadeVolumeOverTime(player: self.player!)
+            self.increaseVolumeOverTime(player: self.crossPlayer!)
+            self.fadeVolumeOverTime(player: self.player!)
         }
     }
     
@@ -113,6 +113,16 @@ public class PBMusic {
     public func fadeOut(delay:Double = 0.5, increment:Double = 0.01) {
         if let player = self.player {
             self.fadeVolumeOverTime(player: player, delay: delay, increment: increment)
+        }
+    }
+    
+    private func increaseVolumeOverTime(player:AVAudioPlayer, delay:Double = 0.5, increment:Double = 0.01) {
+        if player.volume + Float(increment) <= 1 {
+            
+            player.volume = player.volume + Float(increment)
+            Time.delay(delay: delay) { [weak self] in
+                self?.increaseVolumeOverTime(player: player, delay:delay, increment:increment)
+            }
         }
     }
     

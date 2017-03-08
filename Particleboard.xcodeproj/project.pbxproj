@@ -14,6 +14,8 @@
 		E74F53D21C03AEA20050BA8D /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = E74F53D11C03AEA20050BA8D /* README.md */; };
 		E74F53D41C03AEAA0050BA8D /* config.yml in Resources */ = {isa = PBXBuildFile; fileRef = E74F53D31C03AEAA0050BA8D /* config.yml */; };
 		E74F53D61C03AF340050BA8D /* PBMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F53D51C03AF340050BA8D /* PBMusic.swift */; };
+		E756ED171E70889700170CE1 /* MultiLineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E756ED161E70889700170CE1 /* MultiLineLabel.swift */; };
+		E756ED181E70889700170CE1 /* MultiLineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E756ED161E70889700170CE1 /* MultiLineLabel.swift */; };
 		E776DEB51C15DE6D00DB231D /* PBSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = E776DEB41C15DE6D00DB231D /* PBSound.swift */; };
 		E7992BD91D6F8C3D001FFA37 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7992BD81D6F8C3D001FFA37 /* Logging.swift */; };
 		E79C415F1C1F4605005481E6 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C415E1C1F4605005481E6 /* Int+Extensions.swift */; };
@@ -76,6 +78,7 @@
 		E74F53D11C03AEA20050BA8D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E74F53D31C03AEAA0050BA8D /* config.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.yml; sourceTree = "<group>"; };
 		E74F53D51C03AF340050BA8D /* PBMusic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PBMusic.swift; sourceTree = "<group>"; };
+		E756ED161E70889700170CE1 /* MultiLineLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiLineLabel.swift; sourceTree = "<group>"; };
 		E776DEB41C15DE6D00DB231D /* PBSound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PBSound.swift; sourceTree = "<group>"; };
 		E7992BD81D6F8C3D001FFA37 /* Logging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
 		E79C415E1C1F4605005481E6 /* Int+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
@@ -173,6 +176,7 @@
 				E79C41781C20B53A005481E6 /* SKCameraNode+Extensions.swift */,
 				E79C41791C20B53A005481E6 /* CGRect+Extensions.swift */,
 				E7992BD81D6F8C3D001FFA37 /* Logging.swift */,
+				E756ED161E70889700170CE1 /* MultiLineLabel.swift */,
 			);
 			path = Particleboard;
 			sourceTree = "<group>";
@@ -408,6 +412,7 @@
 				E79C41811C20B53A005481E6 /* Graphics.swift in Sources */,
 				E79C41821C20B53A005481E6 /* Easing.swift in Sources */,
 				E79C41851C20B53A005481E6 /* float2+Extensions.swift in Sources */,
+				E756ED171E70889700170CE1 /* MultiLineLabel.swift in Sources */,
 				E74F53D21C03AEA20050BA8D /* README.md in Sources */,
 				E79C41841C20B53A005481E6 /* ZPosition.swift in Sources */,
 				E79C417C1C20B53A005481E6 /* CGVector+Extensions.swift in Sources */,
@@ -435,6 +440,7 @@
 			files = (
 				E7CBDB561D1B74BC00FE9E66 /* CGVector+Extensions.swift in Sources */,
 				E7CBDB5D1D1B74D100FE9E66 /* float2+Extensions.swift in Sources */,
+				E756ED181E70889700170CE1 /* MultiLineLabel.swift in Sources */,
 				E7CBDB521D1B74B000FE9E66 /* Graphics.swift in Sources */,
 				E7A1C31F1D70B69600A16312 /* Logging.swift in Sources */,
 				E7CBDB5B1D1B74CA00FE9E66 /* Time.swift in Sources */,

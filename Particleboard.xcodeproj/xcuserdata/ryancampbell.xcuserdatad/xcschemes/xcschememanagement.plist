@@ -7,16 +7,26 @@
 		<key>Particleboard.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>15</integer>
 		</dict>
 		<key>ParticleboardOS.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>16</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>E730A08C1D8841360013FBE0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E730A0941D8841360013FBE0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>E74F53B31C03AE810050BA8D</key>
 		<dict>
 			<key>primary</key>
