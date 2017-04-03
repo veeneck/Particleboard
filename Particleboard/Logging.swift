@@ -27,7 +27,7 @@ public enum CodePackage : String {
     
     var enabled : Bool {
         switch self {
-        case .SwitchBoard: return false
+        case .SwitchBoard: return true 
         case .Particleboard: return true
         case .Barric: return true
         case .DeckKit: return true
