@@ -23,7 +23,7 @@ public enum LogLevel : Int {
 
 /// Disabled just means .Debug & .Info won't show
 public enum CodePackage : String {
-    case SwitchBoard = "SwitchBoard", Particleboard = "Particleboard", Barric = "Barric", DeckKit = "DeckKit", WarGUI = "WarGUI", FormationKit = "FormationKit", PathKit = "PathKit"
+    case SwitchBoard = "SwitchBoard", Particleboard = "Particleboard", Barric = "Barric", DeckKit = "DeckKit", WarGUI = "WarGUI", FormationKit = "FormationKit", PathKit = "PathKit", AI = "AI"
     
     var enabled : Bool {
         switch self {
@@ -32,7 +32,8 @@ public enum CodePackage : String {
         case .Barric: return true
         case .DeckKit: return true
         case .WarGUI: return false
-        case .FormationKit: return false
+        case .FormationKit: return true
+        case .AI: return false
         case .PathKit: return false
         }
     }
@@ -73,7 +74,12 @@ func getDebugFileName(file:String) -> String {
         ret = "WarGUI"
     }
     else if file.contains("FormationKit") {
-        ret = "FormationKit"
+        if file.contains("AI") {
+            ret = "AI"
+        }
+        else {
+            ret = "FormationKit"
+        }
     }
     else if file.contains("PathKit") {
         ret = "PathKit"

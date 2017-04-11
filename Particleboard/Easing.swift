@@ -315,3 +315,22 @@ public func BounceEaseInOut(p:Float)->Float
         return 0.5 * BounceEaseOut(p: p * 2 - 1) + 0.5;
     }
 }
+
+func pointInLine(A:CGPoint, B:CGPoint, T:CGFloat) -> CGPoint {
+    var C = CGPoint()
+    C.x = A.x - ((A.x - B.x) * T)
+    C.y = A.y - ((A.y - B.y) * T)
+    return C
+}
+
+func pointInQuadCurve(p0:CGPoint, p1:CGPoint, p2:CGPoint, T:CGFloat) -> CGPoint {
+    let A = pointInLine(A: p0, B: p1, T: T)
+    let B = pointInLine(A: p1, B: p2, T: T)
+    return pointInLine(A: A, B: B, T: T) // The point in the quad curve
+}
+
+public func pointInCubicCurve(p0:CGPoint, p1:CGPoint, p2:CGPoint, p3:CGPoint, T:CGFloat) -> CGPoint {
+    let A = pointInQuadCurve(p0: p0, p1: p1, p2: p2, T: T);
+    let B = pointInQuadCurve(p0: p1, p1: p2, p2: p3, T: T);
+    return pointInLine(A: A, B: B, T: T);
+}
