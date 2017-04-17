@@ -23,7 +23,7 @@
 import CoreGraphics
 
 /** The value of π as a CGFloat */
-public let π = Float(M_PI)
+public let π = Float(Double.pi)
 
 public extension CGFloat {
     /**
@@ -74,7 +74,7 @@ public extension CGFloat {
     /**
     * Returns a random floating point number in the range min...max, inclusive.
     */
-    public static func random(min min: CGFloat, max: CGFloat) -> CGFloat {
+    public static func random(min: CGFloat, max: CGFloat) -> CGFloat {
         return CGFloat.random() * (max - min) + min
     }
     

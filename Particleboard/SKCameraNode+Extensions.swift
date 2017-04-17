@@ -23,7 +23,7 @@ public extension SKCameraNode {
         let amplitudeY:Float = 6
         let numberOfShakes = duration / 0.04
         var actionsArray = [SKAction]()
-        for index in 1...Int(numberOfShakes) {
+        for _ in 1...Int(numberOfShakes) {
             // build a new random shake and add it to the list
             let moveX = Float(arc4random_uniform(UInt32(amplitudeX))) - amplitudeX / 2
             let moveY = Float(arc4random_uniform(UInt32(amplitudeY))) - amplitudeY / 2

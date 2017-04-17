@@ -30,7 +30,7 @@ public enum CodePackage : String {
         case .SwitchBoard: return true 
         case .Particleboard: return true
         case .Barric: return true
-        case .DeckKit: return true
+        case .DeckKit: return false
         case .WarGUI: return false
         case .FormationKit: return true
         case .AI: return false

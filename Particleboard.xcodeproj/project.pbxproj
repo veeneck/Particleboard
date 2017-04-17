@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,7 +11,6 @@
 		E74F53BF1C03AE810050BA8D /* Particleboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E74F53B41C03AE810050BA8D /* Particleboard.framework */; };
 		E74F53C41C03AE810050BA8D /* ParticleboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F53C31C03AE810050BA8D /* ParticleboardTests.swift */; };
 		E74F53D01C03AE9B0050BA8D /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E74F53CF1C03AE9B0050BA8D /* .gitignore */; };
-		E74F53D21C03AEA20050BA8D /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = E74F53D11C03AEA20050BA8D /* README.md */; };
 		E74F53D41C03AEAA0050BA8D /* config.yml in Resources */ = {isa = PBXBuildFile; fileRef = E74F53D31C03AEAA0050BA8D /* config.yml */; };
 		E74F53D61C03AF340050BA8D /* PBMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F53D51C03AF340050BA8D /* PBMusic.swift */; };
 		E756ED171E70889700170CE1 /* MultiLineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E756ED161E70889700170CE1 /* MultiLineLabel.swift */; };
@@ -321,7 +320,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Phalanx Studios";
 				TargetAttributes = {
 					E74F53B31C03AE810050BA8D = {
@@ -349,7 +348,7 @@
 				};
 			};
 			buildConfigurationList = E74F53AE1C03AE810050BA8D /* Build configuration list for PBXProject "Particleboard" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -413,7 +412,6 @@
 				E79C41821C20B53A005481E6 /* Easing.swift in Sources */,
 				E79C41851C20B53A005481E6 /* float2+Extensions.swift in Sources */,
 				E756ED171E70889700170CE1 /* MultiLineLabel.swift in Sources */,
-				E74F53D21C03AEA20050BA8D /* README.md in Sources */,
 				E79C41841C20B53A005481E6 /* ZPosition.swift in Sources */,
 				E79C417C1C20B53A005481E6 /* CGVector+Extensions.swift in Sources */,
 				E79C41831C20B53A005481E6 /* Time.swift in Sources */,
@@ -494,14 +492,17 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -542,14 +543,17 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -573,6 +577,7 @@
 		E74F53C91C03AE810050BA8D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -591,6 +596,7 @@
 		E74F53CA1C03AE810050BA8D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;

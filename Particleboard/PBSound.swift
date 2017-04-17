@@ -169,7 +169,7 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
     
     /// Takes a look at distance form center of screen and camera zoom and returns the adjust volume
     private func adjustVolumeByDistanceAndZoom(distance:Float, zoom:CGFloat) -> Float {
-        var volume = self.adjustVolumeByDistance(distance: distance)
+        let volume = self.adjustVolumeByDistance(distance: distance)
         return self.adjustVolumeByZoom(zoom: zoom, volume: volume)
     }
     
@@ -260,7 +260,7 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
         }*/
     }
     
-    @objc public func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: NSError?) {
+    @objc public func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?) {
         print("error decoding")
     }
     

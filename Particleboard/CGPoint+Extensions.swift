@@ -49,7 +49,7 @@ public extension CGPoint {
   /**
    * Adds (dx, dy) to the point.
    */
-  public mutating func offset(dx dx: CGFloat, dy: CGFloat) -> CGPoint {
+  public mutating func offset(dx: CGFloat, dy: CGFloat) -> CGPoint {
     x += dx
     y += dy
     return self
@@ -254,6 +254,6 @@ public func /= ( left: inout CGPoint, right: CGVector) {
 /**
  * Performs a linear interpolation between two CGPoint values.
  */
-public func lerp(start start: CGPoint, end: CGPoint, t: CGFloat) -> CGPoint {
+public func lerp(start: CGPoint, end: CGPoint, t: CGFloat) -> CGPoint {
   return CGPoint(x: start.x + (end.x - start.x)*t, y: start.y + (end.y - start.y)*t)
 }
