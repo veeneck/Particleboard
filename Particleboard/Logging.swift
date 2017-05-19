@@ -32,7 +32,7 @@ public enum CodePackage : String {
         case .Barric: return true
         case .DeckKit: return false
         case .WarGUI: return false
-        case .FormationKit: return true
+        case .FormationKit: return false
         case .AI: return false
         case .PathKit: return false
         }

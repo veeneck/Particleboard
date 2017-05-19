@@ -40,6 +40,8 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
         
         public var lastPlayed : Int = -1
         
+        ///public var currentlyPlaying : Int = 0
+        
         public init(filename:String, fileType:String, filePrefix:String, count:Int, frequency:Int, volumeModifier:Float = 0) {
             self.fileName = filename
             self.fileType = fileType
@@ -51,6 +53,10 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
         
         public mutating func updateLastPlayed(newIndex:Int) {
             self.lastPlayed = newIndex
+        }
+        
+        public mutating func updateCurrentlyPlaying(adjustment:Int) {
+            ///self.currentlyPlaying += adjustment
         }
         
     }
@@ -84,28 +90,26 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
             return SKAction.run({
                 
                 if let player = self.cachedPlayers[fileName] {
-                    player.volume = volume
-                    player.numberOfLoops = 0
-                    player.play()
-                }
-                
-                else if let player = self.loadAVAudioPlayer(fileName: fileName) {
                     player.volume = volume + volumeModifier
                     player.numberOfLoops = 0
                     player.prepareToPlay()
                     player.play()
-                    self.cachedPlayers[fileName] = player
                 }
+                
+                else {
 
-                /*DispatchQueue.global(qos: .userInitiated).async {
-                    [weak self] in
-                    if let player = self?.loadAVAudioPlayer(fileName: fileName) {
-                        player.volume = volume + volumeModifier
-                        player.numberOfLoops = 0
-                        player.play()
-                        ///self?.players.append(player)
+                    DispatchQueue.global(qos: .userInitiated).async {
+                        [weak self] in
+                        if let player = self?.loadAVAudioPlayer(fileName: fileName) {
+                            player.volume = volume + volumeModifier
+                            player.numberOfLoops = 0
+                            player.prepareToPlay()
+                            player.play()
+                            self?.cachedPlayers[fileName] = player
+                        }
                     }
-                }*/
+                    
+                }
             })
 
         }
@@ -114,6 +118,7 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
     /// Instead of playing a specific file, this will look for any loaded sound groups and play a random file from that group. Example would be playing a random bow string, or random sword clank.
     public func getSKActionForSoundGroup(key:String, distanceFromCamera:Float? = nil, cameraZoom:CGFloat? = nil) -> SKAction {
         var volume = self.getVolume()
+        
         if let _ = distanceFromCamera {
             volume = self.adjustVolumeByDistanceAndZoom(distance: distanceFromCamera!, zoom: cameraZoom!)
         }
@@ -123,24 +128,33 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
         else {
             if let fileName = self.getRandomFileFromSoundGroup(key: key) {
                 volume += (self.soundGroups[key]?.volumeModifier)!
-
-                if let player = self.cachedPlayers[fileName] {
-                    return SKAction.run({
+                
+                return SKAction.run({
+                
+                    if let player = self.cachedPlayers[fileName] {
                         player.volume = volume
                         player.numberOfLoops = 0
                         player.prepareToPlay()
                         player.play()
-                    })
-                }
-                else if let player = self.loadAVAudioPlayer(fileName: fileName) {
-                    self.cachedPlayers[fileName] = player
-                    return SKAction.run({
-                            player.volume = volume
-                            player.numberOfLoops = 0
-                            player.prepareToPlay()
-                            player.play()
-                    })
-                }
+                    }
+                        
+                    else {
+                        
+                        DispatchQueue.global(qos: .userInitiated).async {
+                            [weak self] in
+                            if let player = self?.loadAVAudioPlayer(fileName: fileName) {
+                                player.volume = volume
+                                player.numberOfLoops = 0
+                                player.prepareToPlay()
+                                player.play()
+                                self?.cachedPlayers[fileName] = player
+                            }
+                        }
+                        
+                    }
+                   
+                    
+                })
             }
         }
         return SKAction.run({})
