@@ -102,30 +102,11 @@ public class Graphics {
     
     // MARK: Scene borders
     
-    /// Note on functions below. Default scene coordinates:
-    /// iphone: 0 to 2730
-    /// ipad: 341 to 2389
-    /// both have same viewable height
-    public class func getLeftBound(sceneWidth:CGFloat = 2730) -> CGFloat {
-        #if os(iOS)
-        let rect = UIScreen.main.bounds
-        
-        // mainScreen.bounds always reports at half size. So in the default case, it would return 1365
-        let halfScreen = rect.width
-        
-        // center of scene is sceneWidth / 2. Then subtract half of viewable area and you get far left coordinate.
-        // On an iphone looking at default scene, it would be 0
-        // On an ipad at default, it would be (2730 / 2) - 1024 = 1365 - 1024 = 341
-        let leftBound = (sceneWidth / 2) - halfScreen
-        if(leftBound == 341) {
-            return 341
+    public class func getLeftBound(scene:SKScene) -> CGFloat {
+        if let _ = scene.view {
+            return scene.convertPoint(fromView: CGPoint(x:0, y:0)).x
         }
-        else {
-            return 0
-        }
-        #else
-            return 0
-        #endif
+        return 0
     }
     
     public class func getRightBound(sceneWidth:CGFloat = 2730) -> CGFloat {

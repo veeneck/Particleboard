@@ -83,7 +83,7 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
         if let _ = distanceFromCamera {
             volume = self.adjustVolumeByDistanceAndZoom(distance: distanceFromCamera!, zoom: cameraZoom!)
         }
-        if(volume == 0) {
+        if((volume + volumeModifier) <= 0) {
             return SKAction.run({})
         }
         else {
@@ -122,7 +122,7 @@ public class PBSound : NSObject, AVAudioPlayerDelegate {
         if let _ = distanceFromCamera {
             volume = self.adjustVolumeByDistanceAndZoom(distance: distanceFromCamera!, zoom: cameraZoom!)
         }
-        if(volume == 0) {
+        if(volume <= 0) {
             return SKAction.run({})
         }
         else {
