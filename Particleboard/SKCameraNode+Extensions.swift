@@ -11,6 +11,10 @@ import SpriteKit
 /**
     Helpful extensions to encapsulate common camera actions in case the logic becomes more complex over time.
 */
+
+/// Register BG's to move with the camera. Node is the BG, CGFloat is the speed from camera
+public var GLOBAL_PARALLAX_BACKGROUND = Dictionary<SKNode, CGFloat>()
+
 public extension SKCameraNode {
     
     /// Use this to move camera around manually.
@@ -35,6 +39,18 @@ public extension SKCameraNode {
         
         let actionSeq = SKAction.sequence(actionsArray)
         self.run(actionSeq)
+    }
+    
+    override open var position : CGPoint {
+        didSet {
+            for (node, speed) in GLOBAL_PARALLAX_BACKGROUND {
+                let offsetX = position.x - oldValue.x
+                let offsetY = position.y - oldValue.y
+                let changeX = offsetX * speed
+                let changeY = offsetY * speed
+                node.position = CGPoint(x:node.position.x + changeX, y:node.position.y+changeY)
+            }
+        }
     }
     
 }

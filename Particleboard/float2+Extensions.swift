@@ -36,21 +36,10 @@ public extension float2 {
     }
 }
 
-/*
-Extend `float2` to declare conformance to the `Equatable` protocol.
-The conformance to the protocol is provided by the `==` operator function below.
-*/
-extension float2: Equatable {}
-
-/// An equality operator function to determine if two `float2`s are the same.
-public func ==(lhs: float2, rhs: float2) -> Bool {
-    return lhs.x == rhs.x && lhs.y == rhs.y
-}
-
 // Extend `float2` to provide a convenience method for working with pathfinding graphs.
 public extension float2 {
     /// Calculates the nearest point to this point on a line from `pointA` to `pointB`.
-    public func nearestPointOnLineSegment(lineSegment: (startPoint: float2, endPoint: float2)) -> float2 {
+    /*public func nearestPointOnLineSegment(lineSegment: (startPoint: float2, endPoint: float2)) -> float2 {
         // A vector from this point to the line start.
         let vectorFromStartToLine = self - lineSegment.startPoint
         
@@ -70,7 +59,7 @@ public extension float2 {
         let fractionOfComponent = max(0, min(1, componentInSegment))
         
         return lineSegment.startPoint + lineSegmentVector * fractionOfComponent
-    }
+    }*/
     
     /// Returns the angle between two points in radians
     public func angleBetweenPoints(end:float2) -> Float {

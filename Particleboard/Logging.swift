@@ -27,14 +27,15 @@ public enum CodePackage : String {
     
     var enabled : Bool {
         switch self {
-        case .SwitchBoard: return true 
-        case .Particleboard: return true
-        case .Barric: return true
+        case .SwitchBoard: return false
+        case .Particleboard: return false
+        case .Barric: return false
         case .DeckKit: return false
         case .WarGUI: return false
         case .FormationKit: return false
         case .AI: return false
         case .PathKit: return false
+            
         }
     }
 }
@@ -48,7 +49,7 @@ public func logged(_ text:String, file:String, level:LogLevel = LogLevel.Info, n
     let category = getDebugFileName(file: file)
     if let package = CodePackage(rawValue: category) {
         if package.enabled || (level != .Debug && level != .Info) {
-            print(skip + level.icon + category + ": " + text)
+           print(skip + level.icon + category + ": " + text)
         }
     }
     
@@ -74,7 +75,7 @@ func getDebugFileName(file:String) -> String {
         ret = "WarGUI"
     }
     else if file.contains("FormationKit") {
-        if file.contains("AI") {
+        if file.contains("AI") || file.contains("OrderService") || file.contains("AgendaFactory") {
             ret = "AI"
         }
         else {

@@ -104,9 +104,13 @@ public func shortestAngleBetween(angle1: Float, angle2: Float) -> Float {
 
 /// Return the postivie value of a negative radian
 public func positiveRadian( angle:Float) -> Float {
+    let twoπ = π * 2.0
     var angle = angle
     if(angle < 0) {
-        angle = angle + (2.0 * π)
+        angle = angle + twoπ
+    }
+    if angle > twoπ {
+        angle = angle - twoπ
     }
     return angle
 }
