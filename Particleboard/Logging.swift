@@ -42,7 +42,7 @@ public enum CodePackage : String {
 
 public func logged(_ text:String, file:String, level:LogLevel = LogLevel.Info, newline:Bool = false) {
 
-    var skip = ""
+    /*var skip = ""
     if newline == true {
         skip = "\n"
     }
@@ -51,7 +51,7 @@ public func logged(_ text:String, file:String, level:LogLevel = LogLevel.Info, n
         if package.enabled || (level != .Debug && level != .Info) {
            print(skip + level.icon + category + ": " + text)
         }
-    }
+    }*/
     
 }
 

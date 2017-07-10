@@ -49,6 +49,8 @@
 		E7CBDB5D1D1B74D100FE9E66 /* float2+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C41771C20B53A005481E6 /* float2+Extensions.swift */; };
 		E7CBDB5E1D1B74D400FE9E66 /* SKCameraNode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C41781C20B53A005481E6 /* SKCameraNode+Extensions.swift */; };
 		E7CBDB5F1D1B74D700FE9E66 /* CGRect+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C41791C20B53A005481E6 /* CGRect+Extensions.swift */; };
+		E7E2394D1F13CA10003D24EF /* PBIsometricNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E2394C1F13CA10003D24EF /* PBIsometricNode.swift */; };
+		E7E2394E1F13CA10003D24EF /* PBIsometricNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E2394C1F13CA10003D24EF /* PBIsometricNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +104,7 @@
 		E7CBDB2E1D1B237D00FE9E66 /* ParticleboardOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParticleboardOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7CBDB331D1B237D00FE9E66 /* ParticleboardOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticleboardOSTests.swift; sourceTree = "<group>"; };
 		E7CBDB351D1B237D00FE9E66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7E2394C1F13CA10003D24EF /* PBIsometricNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBIsometricNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +179,7 @@
 		E74F53B61C03AE810050BA8D /* Particleboard */ = {
 			isa = PBXGroup;
 			children = (
+				E7E2394C1F13CA10003D24EF /* PBIsometricNode.swift */,
 				E74F53D51C03AF340050BA8D /* PBMusic.swift */,
 				E776DEB41C15DE6D00DB231D /* PBSound.swift */,
 				E79C415E1C1F4605005481E6 /* Int+Extensions.swift */,
@@ -431,6 +435,7 @@
 				E756ED171E70889700170CE1 /* MultiLineLabel.swift in Sources */,
 				E79C41841C20B53A005481E6 /* ZPosition.swift in Sources */,
 				E79C417C1C20B53A005481E6 /* CGVector+Extensions.swift in Sources */,
+				E7E2394D1F13CA10003D24EF /* PBIsometricNode.swift in Sources */,
 				E79C41831C20B53A005481E6 /* Time.swift in Sources */,
 				E79C415F1C1F4605005481E6 /* Int+Extensions.swift in Sources */,
 				E74F53D61C03AF340050BA8D /* PBMusic.swift in Sources */,
@@ -462,6 +467,7 @@
 				E7A1C3211D70B7C400A16312 /* Easing.swift in Sources */,
 				E7CBDB581D1B74C100FE9E66 /* CGFloat+Extensions.swift in Sources */,
 				E7CBDB551D1B74BA00FE9E66 /* Int+Extensions.swift in Sources */,
+				E7E2394E1F13CA10003D24EF /* PBIsometricNode.swift in Sources */,
 				E7CBDB591D1B74C400FE9E66 /* CGPath+Extensions.swift in Sources */,
 				E7CBDB531D1B74B600FE9E66 /* PBMusic.swift in Sources */,
 				E7CBDB571D1B74BF00FE9E66 /* CGPoint+Extensions.swift in Sources */,
@@ -613,7 +619,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Particleboard/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = phalanx.Particleboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -633,7 +639,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Particleboard/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = phalanx.Particleboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -682,7 +688,7 @@
 				INFOPLIST_FILE = ParticleboardOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = phalanx.ParticleboardOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -708,7 +714,7 @@
 				INFOPLIST_FILE = ParticleboardOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = phalanx.ParticleboardOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
