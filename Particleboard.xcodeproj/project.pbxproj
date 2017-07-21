@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E718FB431F2107A800D44C21 /* PBIsometricSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = E718FB421F2107A800D44C21 /* PBIsometricSprite.swift */; };
+		E718FB441F2107A800D44C21 /* PBIsometricSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = E718FB421F2107A800D44C21 /* PBIsometricSprite.swift */; };
 		E719E6331EC606CF0005E9E3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E719E6321EC606CF0005E9E3 /* AVFoundation.framework */; };
 		E719E6351EC606E50005E9E3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E719E6341EC606E50005E9E3 /* AVFoundation.framework */; };
 		E74F53B81C03AE810050BA8D /* Particleboard.h in Headers */ = {isa = PBXBuildFile; fileRef = E74F53B71C03AE810050BA8D /* Particleboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -71,6 +73,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E718FB421F2107A800D44C21 /* PBIsometricSprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBIsometricSprite.swift; sourceTree = "<group>"; };
 		E719E6321EC606CF0005E9E3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E719E6341EC606E50005E9E3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
 		E74F53B41C03AE810050BA8D /* Particleboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Particleboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				E7E2394C1F13CA10003D24EF /* PBIsometricNode.swift */,
+				E718FB421F2107A800D44C21 /* PBIsometricSprite.swift */,
 				E74F53D51C03AF340050BA8D /* PBMusic.swift */,
 				E776DEB41C15DE6D00DB231D /* PBSound.swift */,
 				E79C415E1C1F4605005481E6 /* Int+Extensions.swift */,
@@ -442,6 +446,7 @@
 				E79C417E1C20B53A005481E6 /* CGFloat+Extensions.swift in Sources */,
 				E79C41801C20B53A005481E6 /* CGPath+Extensions.swift in Sources */,
 				E776DEB51C15DE6D00DB231D /* PBSound.swift in Sources */,
+				E718FB431F2107A800D44C21 /* PBIsometricSprite.swift in Sources */,
 				E7992BD91D6F8C3D001FFA37 /* Logging.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -474,6 +479,7 @@
 				E7CBDB541D1B74B800FE9E66 /* PBSound.swift in Sources */,
 				E7CBDB5F1D1B74D700FE9E66 /* CGRect+Extensions.swift in Sources */,
 				E7CBDB5E1D1B74D400FE9E66 /* SKCameraNode+Extensions.swift in Sources */,
+				E718FB441F2107A800D44C21 /* PBIsometricSprite.swift in Sources */,
 				E7CBDB5C1D1B74CE00FE9E66 /* ZPosition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

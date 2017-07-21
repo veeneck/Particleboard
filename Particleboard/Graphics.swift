@@ -27,7 +27,7 @@ public class Graphics {
     }
     
     public class func pulseBlendFactor(min:CGFloat, max:CGFloat, maxDelay:CGFloat, node:SKSpriteNode) {
-        let intensity = CGFloat.random(min: min, max: max)
+        /*let intensity = CGFloat.random(min: min, max: max)
         let time = CGFloat.random(min: 0.1, max: maxDelay)
         let block = SKAction.run({
             node.colorBlendFactor = intensity
@@ -39,25 +39,25 @@ public class Graphics {
             ])
         ) {
             Graphics.pulseBlendFactor(min: min, max: max, maxDelay: maxDelay, node: node)
-        }
+        }*/
     }
     
     public class func pulseAlpha(min:CGFloat, max:CGFloat, maxDelay:CGFloat, node:SKNode) {
-        let intensity = CGFloat.random(min: min, max: max)
+        /*let intensity = CGFloat.random(min: min, max: max)
         let time = CGFloat.random(min: 1, max: maxDelay)
         node.run(SKAction.fadeAlpha(to: intensity, duration: Double(time))) {
             Graphics.pulseAlpha(min: min, max: max, maxDelay: maxDelay, node: node)
-        }
+        }*/
     }
     
     public class func pulseScale(min:CGFloat, max:CGFloat, minDelay: CGFloat, maxDelay:CGFloat, node:SKNode) {
-        let intensity = CGFloat.random(min: min, max: max)
+        /*let intensity = CGFloat.random(min: min, max: max)
         let time = CGFloat.random(min: minDelay, max: maxDelay)
         let action = SKAction.scale(to: intensity, duration: Double(time))
         action.timingMode = .easeInEaseOut
         node.run(action) {
             Graphics.pulseScale(min: min, max: max, minDelay:minDelay, maxDelay: maxDelay, node: node)
-        }
+        }*/
     }
     
     public class func pulseScale(min:CGFloat, max:CGFloat, delay:CGFloat, node:SKNode) {

@@ -21,6 +21,7 @@
 */
 
 import CoreGraphics
+import GameplayKit
 
 /** The value of π as a CGFloat */
 public let π = Float(Double.pi)
@@ -74,8 +75,10 @@ public extension CGFloat {
     /**
     * Returns a random floating point number in the range min...max, inclusive.
     */
-    public static func random(min: CGFloat, max: CGFloat) -> CGFloat {
-        return CGFloat.random() * (max - min) + min
+    public static func random(min: Int, max: Int, divisor: CGFloat) -> CGFloat {
+        //return CGFloat.random() * (max - min) + min
+        let distribution = GKRandomDistribution(lowestValue: min, highestValue: max)
+        return CGFloat(distribution.nextInt()) / divisor
     }
     
     /**

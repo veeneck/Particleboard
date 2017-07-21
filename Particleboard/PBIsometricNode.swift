@@ -22,7 +22,12 @@ public class PBIsometricNode : SKTransformNode {
     }
     
     public override func addChild(_ node: SKNode) {
-        node.position = CGPoint(x:node.position.x, y:node.position.y / (1.414213562373095 * 0.577))
+        if let isoSprite = node as? PBIsometricSprite {
+            /// do nothing since it will automatically convert the coordinates
+        }
+        else {
+            ///node.position = CGPoint(x:node.position.x, y:node.position.y / (1.414213562373095 * 0.577))
+        }
         super.addChild(node)
     }
     
